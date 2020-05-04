@@ -1,3 +1,4 @@
+// Business logic for CardBinder
 function CardBinder () {
     var cards = [];
     var currentId = 0;
@@ -34,4 +35,12 @@ CardBinder.prototype.deleteCard = function(id) {
         }
     };
     return false; 
+}
+
+// Business Logic for Cards
+function Card (name, type, color, cost) {
+    this.name = name,
+    this.type = type,
+    this.color = color,
+    this.cost = cost
 }
