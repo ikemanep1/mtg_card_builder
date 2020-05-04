@@ -13,3 +13,13 @@ CardBinder.prototype.assignId = function() {
     return this.currentId;
 }
 
+CardBinder.prototype.findCard = function(id) {
+    for (var i=0; i < this.cards.length; i++) {
+        if (this.cards[i]) {
+            if (this.cards[i].id == id) {
+                return this.cards[i];
+            }
+        }
+    };
+    return false;
+}
