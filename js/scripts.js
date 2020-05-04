@@ -38,9 +38,35 @@ CardBinder.prototype.deleteCard = function(id) {
 }
 
 // Business Logic for Cards
+
 function Card (name, type, color, cost) {
     this.name = name,
     this.type = type,
     this.color = color,
     this.cost = cost
+}
+
+// UI logic
+
+var cardBinder = new CardBinder();
+
+function displayCardDetails(CardBinderToDisplay) {
+    var cardsList = $("ul#cards");
+    var htmlForCardInfo = '';
+    CardBinderToDisplay.cards.forEach(function(card) {
+        htmlForCardInfo += "<li id=" + card.id + ">" + card.name + " " + card.type + " " + card.color + " " + card.cost + "</li>";
+    });
+    cardsList.html(htmlForCardInfo);
+};
+
+function showCard(cardId) {
+    var card = cardbinder.findCard(cardId);
+    $('#show-card').show();
+    $(".name").html(contact.name);
+    $(".type").html(contact.type);
+    $(".color").html(contact.color);
+    $(".cost").html(contact.cost);
+    var buttons = $('#buttons');
+    buttons.empty();
+    buttons.append("<button class='deleteButton' id=" +  + card.id + ">Delete</button>");
 }
