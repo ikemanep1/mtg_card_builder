@@ -23,3 +23,15 @@ CardBinder.prototype.findCard = function(id) {
     };
     return false;
 }
+
+CardBinder.prototype.deleteCard = function(id) {
+    for (var i=0; i < this.cards.length; i++) {
+        if (this.cards[i]) {
+            if (this.cards[i].id == id) {
+                delete this.cards[i];
+                return true;
+            }
+        }
+    };
+    return false; 
+}
