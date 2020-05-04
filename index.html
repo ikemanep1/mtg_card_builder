@@ -9,5 +9,57 @@
     <title></title>
   </head>
   <body>
+    <h1>Ike's mtg card builder</h1>
+    <p>Fill out the form to make a custom mtg card!</p>
+    <form>
+      <div class="form-group">
+        <label for="card-name">Card's name:</label>
+        <input type="text"  class="form-control" id="card-name">
+      </div>
+      <div class="form-group"></div>
+      <label for="card-type">Card's type:</label>
+          <select id="card-type">
+            <option value="blank"></option>
+            <option value="creature">creature</option>
+            <option value="artifact">artifact</option>
+            <option value="sorcery">sorcery</option>
+            <option value="instant">instant</option>
+            <option value="enchantment">enchantment</option>
+          </select>
+      </div>
+      <label for="card-color">Card's color:</label>
+          <select id="card-color">
+            <option value="blank"></option>
+            <option value="white">white</option>
+            <option value="blue">blue</option>
+            <option value="black">black</option>
+            <option value="red">red</option>
+            <option value="green">green</option>
+          </select>
+      </div>
+      <label for="card-cost">Card's mana cost:</label>
+          <select id="card-cost">
+            <option value="blank"></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+      </div>
+      <button type="submit" class="btn-primary">create!</button>
+    </form>
+    <h2>Cards that you have created will be listed here:</h2>
+    <ul id="cardNames">
+    </ul>
+    <div id="show-card">
+      <p>name: <span class="name"></span></p>
+      <p>type: <span class="type"></span></p>
+      <p>color: <span class="color"></span></p>
+      <p>cost: <span class="cost"></span></p>
+      <div id="buttons">
+        
+      </div>
+    </div>
   </body>
 </html>
