@@ -62,11 +62,40 @@ function displayCardDetails(CardBinderToDisplay) {
 function showCard(cardId) {
     var card = cardbinder.findCard(cardId);
     $('#show-card').show();
-    $(".name").html(contact.name);
-    $(".type").html(contact.type);
-    $(".color").html(contact.color);
-    $(".cost").html(contact.cost);
+    $(".name").html(card.name);
+    $(".type").html(card.type);
+    $(".color").html(card.color);
+    $(".cost").html(card.cost);
     var buttons = $('#buttons');
     buttons.empty();
     buttons.append("<button class='deleteButton' id=" +  + card.id + ">Delete</button>");
 }
+
+function attachCardListeners() {
+    $("ul#cards").on("click", "li", function() {
+      showCard(this.id);
+    });
+    $("#buttons").on("click", ".deleteButton", function() {
+      cardBinder.deleteCard(this.id);
+      $("#show-card").hide();
+      displayCardDetails(cardBinder);
+    });
+  };
+
+  $(document).ready(function() {
+    attachCardListeners();
+    $("form#new-card").submit(function(event) {
+      event.preventDefault();
+      var inputtedCardName = $("input#card-name").val();
+      var inputtedCardType = $("select#card-type").val();
+      var inputtedCardColor = $("select#card-color").val();
+      var inputtedCardCost = $("select#card-cost").val();
+      $("input#card-name").val("");
+      $("select#card-type").val("");
+      $("select#card-color").val("");
+      $("select#card-cost").val("");
+      var newCard = new Card(inputtedCardName, inputtedCardType, inputtedCardColor, inputtedCardCost);
+      cardBinder.addCard(newCard);
+      displayCardDetails(cardBinder);
+    });
+});
